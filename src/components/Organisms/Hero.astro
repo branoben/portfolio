@@ -1,0 +1,108 @@
+---
+import { Image } from 'astro:assets';
+import Button from "../Atoms/Button.astro";
+
+interface Props {
+    title: string;
+    subtitle: string;
+    ctaText: string;
+    ctaButtonText: string;
+    ctaButtonHref: string;
+    image: ImageMetadata;
+    imageAlt: string,
+}
+
+const { image, imageAlt, title, subtitle, ctaText, ctaButtonText, ctaButtonHref } = Astro.props;
+---
+
+<div class="c-hero">
+    <div class="content">
+        <h1 class="title">{title}</h1>
+        <h2 class="subtitle">{subtitle}</h2>
+        <div class="cta">
+            <div class="text">{ctaText}</div>
+            <Button href={ctaButtonHref} title={ctaButtonText}/>
+        </div>
+    </div>
+    <div class="image">
+        <Image src={image} alt={imageAlt} />
+    </div>
+</div>
+
+<style lang="scss">
+.c-hero {
+    background: var(--primary-light);
+    padding: 25px 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .content {
+        padding: 25px 0;
+
+        .title {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--font-light);
+            line-height: 36px;
+            margin: 0 0 20px 0;
+        }
+
+        .text {
+            display: inline-block;
+            color: var(--font-light);
+            font-weight: 300;
+        }
+    }
+
+    .cta {
+        display: flex;
+        align-items: center;
+
+        .text {
+            line-height: 32px;
+            margin-right: 15px;
+        }
+    }
+
+    .image {
+        font-size: 0;
+        flex-grow: 1;
+        flex-shrink: 0;
+        margin: -25px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .c-hero {
+        flex-direction: column;
+
+        .content {
+            margin-bottom: 20px;
+            text-aligN: center;
+        }
+
+        .image {
+            position: relative;
+            left: -20px;
+        }
+
+        .cta {
+            flex-direction: column;
+            
+            .text {
+                width: auto;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+</style>

@@ -1,12 +1,54 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Organisms/Hero.astro";
+import Card from "../components/Organisms/Card.astro";
+
+import IconPalette from "../components/Atoms/IconPalette.astro";
+import IconBook from "../components/Atoms/IconBook.astro";
+import IconKeyboard from "../components/Atoms/IconKeyboard.astro";
+
+import HeroPhoto from "../assets/photo.png";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome!</h1>
-	</main>
+<Layout title="Branislav Beňovič">
+    <section class="hero">
+        <Hero
+            title="Hi, I'm Branislav."
+            subtitle="I'm a developer with more than 8 years of professional experience."
+            image={HeroPhoto}
+            imageAlt="Branislav Beňovič"
+            ctaText="Want to see my resume or just say hi?"
+            ctaButtonText="Contact me"
+            ctaButtonHref="mailto:branislav@benovic.net"
+        />
+    </section>
+
+    <section class="cards">
+        <Card
+            title="I love making things."
+            iconSize={60}
+        >
+            <IconPalette slot="icon" />
+            User interfaces, UX, frontend, backend, deployment - I've done it all. Since 2011, I've worked on everything from small personal sites to nationwide portals, both as an independent freelancer and as part of a team. Outside of the digital world, my creative passion extends to music - I sing and play the guitar in my band.
+        </Card>
+
+        <Card
+            title="I love learning."
+            iconSize={50}
+        >
+            <IconBook slot="icon" />
+            In my free time, I like to learn more, whether by reading books, watching courses, or picking up new languages. I speak Slovak, English, and German, and I'm currently learning Dutch. I'm also working on an AI-powered language learning app - stay tuned!
+        </Card>
+
+        <Card
+            title="I love typing."
+            iconSize={60}
+        >
+            <IconKeyboard slot="icon" />
+            Countless hours spent at my computer have paid off in regards to my typing speed - I&nbsp;won several typing championships and even became the World Junior Vice Champion in 2015. Currently, I have <a href="https://10fastfingers.com/forum/viewtopic.php?t=7" class="link" target="_blank">the Slovak record on 10FastFingers</a> with a typing speed of 179 WPM.
+        </Card>
+    </section>
 </Layout>
 
-<style>
+<style lang="scss">
 </style>

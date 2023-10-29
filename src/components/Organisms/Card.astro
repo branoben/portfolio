@@ -1,0 +1,89 @@
+---
+interface Props {
+    title: string;
+    iconSize: number;
+}
+
+const { title, iconSize } = Astro.props;
+---
+
+<article class="c-card">
+    <div class="icon-wrapper">
+        <div class="icon" style={`width: ${iconSize}px`}>
+            <slot name="icon"></slot>
+        </div>
+    </div>
+    <div class="content">
+        <h3 class="title">{title}</h3>
+        <p class="text">
+            <slot />
+        </p>
+    </div>
+</article>
+
+<style lang="scss">
+.c-card {
+    display: flex;
+    align-items: center;
+    padding: 40px 50px;
+    border-bottom: 2px solid var(--primary-light);
+
+    .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        margin-right: 40px;
+        flex-shrink: 0;
+        padding: 10px;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            fill: var(--primary);
+        }
+    }
+
+    .content {
+        .title {
+            font-size: 22px;
+            margin: 0 0 20px 0;
+        }
+
+        .text {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--font-light);
+            line-height: 28px;
+            margin: 0;
+        }
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-height: 1080px) {
+    .c-card {
+        padding: 25px 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .c-card {
+        flex-direction: column;
+        padding: 40px;
+        gap: 20px;
+        text-align: center;
+
+        .icon-wrapper {
+            margin: 0;
+        }
+    }
+}
+</style>

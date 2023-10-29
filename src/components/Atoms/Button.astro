@@ -1,0 +1,24 @@
+---
+interface Props {
+    href: string;
+    title: string,
+}
+
+const { href, title } = Astro.props;
+---
+
+<a href={href} class="c-button">{title}</a>
+
+<style lang="scss">
+.c-button {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 16px;
+}
+</style>

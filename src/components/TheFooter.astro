@@ -1,0 +1,69 @@
+---
+import IconGithub from "./Atoms/IconGithub.astro";
+import IconX from "./Atoms/IconX.astro";
+import IconLinkedin from "./Atoms/IconLinkedin.astro";
+---
+
+<footer class="c-footer">
+    <div class="container">
+        <div class="wrapper">
+            <span>&copy; 2023 Branislav Beňovič</span>
+
+            <ul class="socials">
+                <li>
+                    <a href="https://github.com/branoben" target="_blank" class="icon" title="GitHub">
+                        <IconGithub />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/branoben" target="_blank" class="icon" title="X">
+                        <IconX />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/branislav-benovic/" class="icon" target="_blank" title="LinkedIn">
+                        <IconLinkedin />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<style lang="scss">
+.c-footer {
+    padding: 25px 50px;
+    color: var(--font-light);
+    font-weight: 300;
+    font-size: 14px;
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .socials {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .icon {
+            display: inline-block;
+            width: 20px;
+            fill: var(--font);
+            transition: fill .2s ease;
+            
+            &:hover {
+                fill: var(--primary);
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .c-footer {
+        padding: 20px;
+    }
+}
+</style>

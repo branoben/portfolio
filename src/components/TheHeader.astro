@@ -1,0 +1,47 @@
+---
+
+---
+
+<header class="c-header">
+    <div class="container">
+        <a href="/" class="logo" title="Branislav Beňovič">
+            <span class="name">Branislav</span>
+            <div class="circle">BB</div>
+            <span class="name">Beňovič</span>
+        </a>
+    </div>
+</header>
+
+<style lang="scss">
+.c-header {
+    padding: 40px 0;
+    text-align: center;
+
+    .logo {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--primary);
+        gap: 10px;
+
+        .circle {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 21px;
+            font-weight: 900;
+        }
+    }
+}
+
+@media (max-height: 1080px) {
+	.c-header {
+		padding: 20px 0;
+	}
+}
+</style>
