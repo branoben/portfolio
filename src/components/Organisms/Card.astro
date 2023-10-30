@@ -9,7 +9,7 @@ const { title, iconSize } = Astro.props;
 
 <article class="c-card">
     <div class="icon-wrapper">
-        <div class="icon" style={`width: ${iconSize}px`}>
+        <div class="icon" style={`width: ${iconSize}px; height: ${iconSize}px;`}>
             <slot name="icon"></slot>
         </div>
     </div>
@@ -42,7 +42,6 @@ const { title, iconSize } = Astro.props;
 
         .icon {
             display: flex;
-            align-items: center;
             justify-content: center;
             fill: var(--primary);
         }
